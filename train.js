@@ -8,7 +8,7 @@
 //     "endi dam oling", // 60~
 // ];
 
-//Callback function
+// Callback function
 // function maslahatBering (a, callback) {
 //     if(typeof a !== 'number') callback("insert a number", null);
 //     else if(a <= 20) callback(null, list[0]);
@@ -58,7 +58,7 @@
 // console.log('passes here 1');
 
 
-//async/await
+// //async/await
 // async function run() {
 //     let javob = await maslahatBering(20);
 //     console.log(javob);
@@ -116,14 +116,32 @@ Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkin
 MASALAN countLetter("e", "engineer") 3ni return qiladi.*/
 
 //Answer:
-const countLetter = (a, b) => {
+// const countLetter = (letter, word) => {
+//     let count = 0;
+//     for(let i = 0; i < word.length; i++){
+//         if(letter === word[i]) {
+//             count++;
+//         }
+//     }
+//     console.log(`Count of ${word} inside ${letter}  equals to =>  ${count}`)
+// }
+
+// countLetter("e", "engineer");
+
+
+
+
+const countNumber = (anyword) => {
     let count = 0;
-    for(let i = 0; i < b.length; i++){
-        if(a === b[i]) {
+    const number = []
+    for(let i = 0; i < anyword.length; i++){
+        if( Number(anyword[i]) || parseInt(anyword[i]) === 0) {
             count++;
+            number.push(anyword[i])
         }
     }
-    console.log(`Count of ${a} inside ${b}  equals to =>  ${count}`)
+    console.log(`Count of numbers in ${anyword}  equals to =>  ${count}`);
+    console.log('Numbers inside given string are:', number);
 }
 
-countLetter("e", "engineer");
+countNumber( "ad2a54y79wet0sfgb9");
