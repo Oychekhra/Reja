@@ -55,15 +55,38 @@ app.post("/delete-item", (req, res) => {
     db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, 
     function(err, data){
         res.json({state: "success"});
-    })
+    }
+);
 
+});
+
+app.post("/edit-item", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    db.collection("plans").findOneAndUpdate(
+        { _id: new mongodb.ObjectId(data.id) }, 
+        { $set: { reja: data.new_input } },
+        function (err, data) {
+            res.json({ state: "success"});
+        }
+    );
+    // res.end("done");
+
+});
+
+app.post("/delete-all", (req, res) => {
+    if(req.body.delete_all) {
+        db.collection("plans").deleteMany(function() {
+            res.json({ state: "Hamma rejalar ochirildi"});
+        });
+    }
 });
 
 app.get("/author", (req, res) => {
    res.render("author", {user: user});
 });
 
-app.get('/', function(red, res) {
+app.get('/', function(req, res) {
     console.log("user entered /");
     db.collection("plans")
     .find()

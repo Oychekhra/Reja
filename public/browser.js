@@ -1,3 +1,7 @@
+// const { response } = require("../app");
+
+// const { response } = require("../app");
+
 console.log('FrontEnd JS ishga tushdi');
 
 function itemTemplate(item) {
@@ -50,11 +54,37 @@ document.addEventListener("click", function (e) {
             console.log("Iltimos qaytadan harakat qiling");
            })
         }
-    }   
+    };  
 
     //edit oper
     if(e.target.classList.contains("edit-me")) {
-        alert('siz edit tugmasini bosdingiz');
+       let userInput = prompt(
+        "O'ZGARTIRISH KIRITING", 
+        e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if(userInput) {
+        axios
+        .post("/edit-item", {
+            id: e.target.getAttribute("data-id"),
+            new_input: userInput,
+        })
+        .then((response) => {
+            console.log(response.data);
+            e.target.parentElement.parentElement.querySelector(
+                ".item-text"
+            ).innerHTML = userInput;
+        })
+        .catch((err) => {
+            console.log("Iltimos qayta harakat qilib koring")
+        });
+       }
     }
 
+});
+
+document.getElementById("clean-all").addEventListener("click", function() {
+    axios.post("/delete-all", {delete_all: true }).then((response) => {
+        alert(response.data.state);
+        document.location.reload();
+    });
 });
