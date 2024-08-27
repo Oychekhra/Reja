@@ -159,41 +159,58 @@ shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud!
  shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud*/
 
 //Answer
- const moment = require ('moment');
-let now = moment().format('h:mm');
- class Shop {
-    non;
-    lagmon;
-    cola;
+//  const moment = require ('moment');
+// let now = moment().format('h:mm');
+//  class Shop {
+//     non;
+//     lagmon;
+//     cola;
 
 
 
-    constructor(non, lagmon, cola) {
-        this.non = non;
-        this.lagmon =lagmon;
-        this.cola = cola;
-    }
-    qoldiq() {
-        console.log(`hozir ${now}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud`)
-    }
+//     constructor(non, lagmon, cola) {
+//         this.non = non;
+//         this.lagmon =lagmon;
+//         this.cola = cola;
+//     }
+//     qoldiq() {
+//         console.log(`hozir ${now}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud`)
+//     }
 
-    sotish(product, miqdor) {
-        if(this[product] !== undefined && this[product]>= miqdor) {
-            this[product] -= miqdor;
-            console.log(`hozir ${now}da ${miqdor}ta ${product} sotildi va dokonda ${this[product]}ta qoldi`)
-        }else{
-            console.log(`hozir ${now} zahirada sotib olish uchun  ${product} yetarli emas.`)
-        }
-    }
+//     sotish(product, miqdor) {
+//         if(this[product] !== undefined && this[product]>= miqdor) {
+//             this[product] -= miqdor;
+//             console.log(`hozir ${now}da ${miqdor}ta ${product} sotildi va dokonda ${this[product]}ta qoldi`)
+//         }else{
+//             console.log(`hozir ${now} zahirada sotib olish uchun  ${product} yetarli emas.`)
+//         }
+//     }
 
-    qabul(product, miqdor) {
-        this[product]+= miqdor;
-        console.log(`Hozir ${now}da ${miqdor}ta ${product} sotib olindi va dokonda ${this[product]}ta boldi`)
-    }
+//     qabul(product, miqdor) {
+//         this[product]+= miqdor;
+//         console.log(`Hozir ${now}da ${miqdor}ta ${product} sotib olindi va dokonda ${this[product]}ta boldi`)
+//     }
+// }
+
+// const Shop1 = new Shop(4, 5, 2);
+// Shop1.qoldiq();
+// Shop1.sotish("non", 3);
+// Shop1.qabul('cola', 4)
+// Shop1.qoldiq();
+
+
+// D-TASK: 
+
+// Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
+// MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
+
+// answer
+
+function checkContent(str1, str2) {
+    let sortedList = str1.split('').sort().join('');
+    let sortedList2 = str2.split('').sort().join('');
+    return sortedList === sortedList2;
 }
 
-const Shop1 = new Shop(4, 5, 2);
-Shop1.qoldiq();
-Shop1.sotish("non", 3);
-Shop1.qabul('cola', 4)
-Shop1.qoldiq();
+console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("you", "yoy")); 
