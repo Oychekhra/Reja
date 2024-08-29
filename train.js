@@ -206,11 +206,28 @@ shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud!
 
 // answer
 
-function checkContent(str1, str2) {
-    let sortedList = str1.split('').sort().join('');
-    let sortedList2 = str2.split('').sort().join('');
-    return sortedList === sortedList2;
-}
+// function checkContent(str1, str2) {
+//     let sortedList = str1.split('').sort().join('');
+//     let sortedList2 = str2.split('').sort().join('');
+//     return sortedList === sortedList2;
+// }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("you", "yoy")); 
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("you", "yoy")); 
+
+// E-TASK: 
+
+// Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+// MASALAN: getReverse("hello") return qilsin "olleh"
+
+
+function getReverse(str) {
+    const RevStr = [];
+    for (i=0; i<str.length; i++) {
+       RevStr.push(str[i]);
+    }
+    console.log(`New array is : ${RevStr}`);
+   let  Reversed = RevStr.reverse().join('')
+   console.log(`Reversed string is: ${Reversed}`);
+}
+getReverse("hello");
