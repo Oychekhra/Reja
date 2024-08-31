@@ -221,13 +221,38 @@ shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud!
 // MASALAN: getReverse("hello") return qilsin "olleh"
 
 
-function getReverse(str) {
-    const RevStr = [];
-    for (i=0; i<str.length; i++) {
-       RevStr.push(str[i]);
+// function getReverse(str) {
+//     const RevStr = [];
+//     for (i=0; i<str.length; i++) {
+//        RevStr.push(str[i]);
+//     }
+//     console.log(`New array is : ${RevStr}`);
+//    let  Reversed = RevStr.reverse().join('')
+//    console.log(`Reversed string is: ${Reversed}`)
+// }
+// getReverse("hello");
+
+
+/*F-TASK: 
+
+Shunday findDoublers function tuzing, unga faqat bitta string argument pass bolib, agar stringda bir hil harf qatnashgan bolsa true, qatnashmasa false qaytarishi kerak.
+MASALAN: getReverse("hello") return true return qiladi*/
+
+
+function findDoublers(str) {
+    let newArray = [];
+
+    for (let char of str) {
+        if (newArray.includes(char)) {
+            return true;
+        }
+        newArray.push(char);
     }
-    console.log(`New array is : ${RevStr}`);
-   let  Reversed = RevStr.reverse().join('')
-   console.log(`Reversed string is: ${Reversed}`);
+    
+    return false;
 }
-getReverse("hello");
+console.log(findDoublers("hello")); 
+
+
+
+
